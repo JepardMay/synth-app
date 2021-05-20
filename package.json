@@ -1,0 +1,35 @@
+{
+  "name": "synth-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "gulp build",
+    "start": "gulp start"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "Firefox ESR"
+  ],
+  "engines": {
+    "node": "8.15"
+  },
+  "devDependencies": {
+    "browser-sync": "2.26.14",
+    "gulp-html-prettify": "0.0.1",
+    "prettier": "2.2.1",
+    "@babel/preset-env": "7.13.12",
+    "autoprefixer": "9.5.x",
+    "babel-loader": "8.2.2",
+    "del": "4.1.1",
+    "gulp": "4.0.x",
+    "gulp-plumber": "1.2.x",
+    "gulp-postcss": "8.0.x",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.x",
+    "gulp-sourcemaps": "2.6.x",
+    "webpack": "4.46.0",
+    "webpack-stream": "5.2.1",
+    "@babel/core": "7.14.3"
+  }
+}
