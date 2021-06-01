@@ -17,12 +17,11 @@
 /* стилизуем кнопку */
 .menu__btn {
   display: flex; /* используем flex для центрирования содержимого */
-  align-items: center;  /* центрируем содержимое кнопки */
+  align-items: center; /* центрируем содержимое кнопки */
   position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 26px;
-  height: 26px;
+  top: 32px;
+  left: 41px;
+  width: 35px;
   cursor: pointer;
   z-index: 1;
 }
@@ -33,15 +32,15 @@
   display: block;
   position: absolute;
   width: 100%;
-  height: 2px;
-  background-color: #616161;
+  height: 4px;
+  background-color: $color-jagger;
 }
 .menu__btn > span::before {
-  content: '';
+  content: "";
   top: -8px;
 }
 .menu__btn > span::after {
-  content: '';
+  content: "";
   top: 8px;
 }
 
@@ -58,31 +57,35 @@
   padding: 80px 0;
   list-style: none;
   text-align: center;
-  background-color: #ECEFF1;
-  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+  background-color: #eceff1;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
 }
 /* элементы меню */
 .menu__item {
   display: block;
   padding: 12px 24px;
   color: #333;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
 }
 .menu__item:hover {
-  background-color: #CFD8DC;
+  background-color: #cfd8dc;
 }
 
 #menu__toggle:checked ~ .menu__btn > span {
   transform: rotate(45deg);
 }
-#menu__toggle:checked ~ .menu__btn > span::before {
+#menu__toggle:checked
+  ~ .menu__btn
+  > span::before {
   top: 0;
   transform: rotate(0);
 }
-#menu__toggle:checked ~ .menu__btn > span::after {
+#menu__toggle:checked
+  ~ .menu__btn
+  > span::after {
   top: 0;
   transform: rotate(90deg);
 }
@@ -94,57 +97,63 @@
 .menu__btn > span,
 .menu__btn > span::before,
 .menu__btn > span::after {
-  transition-duration: .25s;
+  transition-duration: 0.25s;
 }
 .menu__box {
-  transition-duration: .25s;
+  transition-duration: 0.25s;
 }
 .menu__item {
-  transition-duration: .25s;
+  transition-duration: 0.25s;
 }
 
 .piano {
   width: 580px;
   height: 209px;
-  margin:50px auto;
-  display:flex;
- }
- .key {
+  margin: 130px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.key {
   width: 100px;
   height: 100%;
-  border:2px solid #000;
+  border: 2px solid $color-white;
   border-radius: 0 0 5px 5px;
   cursor: pointer;
-  box-shadow: inset -2px -2px 5px #000;
+  // box-shadow: inset -2px -2px 5px #000;
   text-align: center;
   font-size: 40px;
   font-family: sans-serif;
   font-weight: bold;
-  background: #fff;
+  background: $color-white-rock;
   user-select: none;
-  transition: .1s;
+  transition: 0.1s;
   display: flex;
   align-items: flex-end;
   justify-content: center;
- }
- .key-b {
+}
+.key-b {
   width: 70px;
-  background: #000;
+  background: $color-jagger;
   font-size: 30px;
-  color:#fff;
+  color: #fff;
   height: 60%;
-  margin-left: -35px;
-  margin-right: -35px;
+  margin-left: -23px;
+  margin-right: -26px;
   z-index: 2;
- }
- .key.active {
+}
+.key.active {
   background: #ccc;
- }
- .key-b.active {
+}
+.key-b.active {
   background: #333;
- }
+}
 
- .box-copyright {
+.box-copyright {
   display: flex;
   justify-content: space-between;
   margin-top: 42px;
+}
+
+.volume {
+  padding: 15px 12px 0 0;
+}
