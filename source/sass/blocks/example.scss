@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: $color-white;
+  font-size: $font-size-base;
 }
 
 .header {
@@ -10,150 +11,85 @@
   justify-content: space-between;
 }
 
-/* скрываем чекбокс */
-#menu__toggle {
-  opacity: 0;
-}
-/* стилизуем кнопку */
-.menu__btn {
-  display: flex; /* используем flex для центрирования содержимого */
-  align-items: center; /* центрируем содержимое кнопки */
-  position: fixed;
-  top: 32px;
-  left: 41px;
-  width: 35px;
-  cursor: pointer;
-  z-index: 1;
-}
-/* добавляем "гамбургер" */
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  background-color: $color-jagger;
-}
-.menu__btn > span::before {
-  content: "";
-  top: -8px;
-}
-.menu__btn > span::after {
-  content: "";
-  top: 8px;
+h1 {
+  font-size: $font-size-h1;
+  margin: 20px 0 0;
 }
 
-/* контейнер меню */
-.menu__box {
-  display: block;
-  position: fixed;
-  visibility: hidden;
-  top: 0;
-  left: -100%;
-  width: 300px;
-  height: 100%;
-  margin: 0;
-  padding: 80px 0;
-  list-style: none;
-  text-align: center;
-  background-color: #eceff1;
+.volume {
+  padding: 9px 2px 5px;
+  margin: 15px 15px 15px 0;
+  background-color: $color-white;
+  border: 1px solid $color-white;
+  border-radius: 4px;
   box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-}
-/* элементы меню */
-.menu__item {
-  display: block;
-  padding: 12px 24px;
-  color: #333;
-  font-family: "Roboto", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.menu__item:hover {
-  background-color: #cfd8dc;
-}
-
-#menu__toggle:checked ~ .menu__btn > span {
-  transform: rotate(45deg);
-}
-#menu__toggle:checked
-  ~ .menu__btn
-  > span::before {
-  top: 0;
-  transform: rotate(0);
-}
-#menu__toggle:checked
-  ~ .menu__btn
-  > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
-#menu__toggle:checked ~ .menu__box {
-  visibility: visible;
-  left: 0;
-}
-
-.menu__btn > span,
-.menu__btn > span::before,
-.menu__btn > span::after {
-  transition-duration: 0.25s;
-}
-.menu__box {
-  transition-duration: 0.25s;
-}
-.menu__item {
-  transition-duration: 0.25s;
-}
-
-.piano {
-  width: 580px;
-  height: 209px;
-  margin: 130px auto;
-  display: flex;
-  justify-content: space-between;
-}
-.key {
-  width: 100px;
-  height: 100%;
-  border: 2px solid $color-white;
-  border-radius: 0 0 5px 5px;
   cursor: pointer;
-  // box-shadow: inset -2px -2px 5px #000;
-  text-align: center;
-  font-size: 40px;
-  font-family: sans-serif;
-  font-weight: bold;
-  background: $color-white-rock;
-  user-select: none;
-  transition: 0.1s;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
 }
-.key-b {
-  width: 70px;
-  background: $color-jagger;
-  font-size: 30px;
-  color: #fff;
-  height: 60%;
-  margin-left: -23px;
-  margin-right: -26px;
-  z-index: 2;
-}
-.key.active {
-  background: #ccc;
-}
-.key-b.active {
-  background: #333;
+
+main {
+  display: block;
+  flex-grow: 1;
 }
 
 .box-copyright {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 42px;
+  &__copy {
+    margin: 25px 20px 0;
+  }
 }
 
-.volume {
-  padding: 15px 12px 0 0;
+
+@active: #3498DB;
+@inactive: #000;
+
+.toggle-switch {
+  background: #ccc;
+  width: 80px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+  
+  &:after {
+    content: " ";
+    display: block;
+    width: 40px;
+    height: 30px;
+    background-color: @active;
+    border: 3px solid #fff;
+    border-top: 0;
+    border-bottom: 0;
+    margin-left: -3px;
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .active & {
+    &:after {
+      margin-left: 40px;
+    }
+  }
+}
+
+.toggle-label {
+  display: inline-block;
+  line-height: 30px;
+}
+
+.toggle-label-off {
+  color: #3498DB;
+}
+
+.active {
+  
+  .toggle-label-off {
+    color: #000;
+  }
+
+  .toggle-label-on {
+    color: #3498DB;
+  }
 }
