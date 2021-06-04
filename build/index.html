@@ -19,12 +19,14 @@
         <ul class="menu__box">
           <li><a class="menu__item" href="#">Themes</a></li>
           <li><a class="menu__item" href="#">Styles</a></li>
-          <li><a class="menu__item" href="#">Hints</a>
-            <!-- <span class="toggle">
+          <li>
+            <a class="menu__item" href="#">Hints
+            <div class="toggle">
               <div class="toggle-label toggle-label-off"></div>
               <div class="toggle-switch"></div>
               <div class="toggle-label toggle-label-on"></div>
-            </span> -->
+            </div>
+            </a>
           </li>
           <li><a class="menu__item" href="#">About</a></li>
         </ul>
@@ -46,18 +48,19 @@
     <main>
       <div class="container">
         <div class="piano">
-          <div class="key key-w" data-note="C"></div>
-          <div class="key key-b" data-note="Cs"></div>
-          <div class="key key-w" data-note="D"></div>
-          <div class="key key-b" data-note="Ds"></div>
-          <div class="key key-w" data-note="E"></div>
-          <div class="key key-w" data-note="F"></div>
-          <div class="key key-b" data-note="Fs"></div>
-          <div class="key key-w" data-note="G"></div>
-          <div class="key key-b" data-note="Gs"></div>
-          <div class="key key-w" data-note="A"></div>
-          <div class="key key-b" data-note="As"></div>
-          <div class="key key-w" data-note="B"></div>
+          <button class="key key-w" data-note="C" type="button"></button>
+          <button class="key key-b" data-note="Cs" type="button"></button>
+          <button class="key key-w" data-note="D" type="button"></button>
+          <button class="key key-b" data-note="Ds" type="button"></button>
+          <button class="key key-w" data-note="E" type="button"></button>
+          <button class="key key-w" data-note="F" type="button"></button>
+          <button class="key key-b" data-note="Fs" type="button"></button>
+          <button class="key key-w" data-note="G" type="button"></button>
+          <button class="key key-b" data-note="Gs" type="button"></button>
+          <button class="key key-w" data-note="A" type="button"></button>
+          <button class="key key-b" data-note="As" type="button"></button>
+          <button class="key key-w" data-note="B" type="button"></button>
+          <button class="key key-w" data-note="B" type="button"></button>
         </div>
       </div>
     </main>
@@ -67,11 +70,13 @@
       </div>
     </footer>
 
-    <script>$(function(){
-      $('.toggle').on('click', function(event){
-        event.preventDefault();
-        $(this).toggleClass('active');
+    <script>
+      $(function(){
+        $('.toggle').on('click', function(event){
+          event.preventDefault();
+          $(this).toggleClass('active');
+        });
       });
-    });</script>
+    </script>
   </body>
 </html>

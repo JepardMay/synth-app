@@ -1,14 +1,14 @@
 .piano {
-    width: 580px;
+    width: 703px;
     height: 209px;
     margin: 130px auto;
     display: flex;
     justify-content: space-between;
   }
   .key {
-    width: 118px;
+    width: 123px;
     height: 100%;
-    border: 2px solid $color-white;
+    border: 1px solid $color-white;
     border-radius: 0 0 5px 5px;
     cursor: pointer;
     // box-shadow: inset -2px -2px 5px #000;
