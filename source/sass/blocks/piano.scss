@@ -1,41 +1,41 @@
 .piano {
-    width: 580px;
-    height: 209px;
-    margin: 130px auto;
-    display: flex;
-    justify-content: space-between;
-  }
-  .key {
-    width: 118px;
-    height: 100%;
-    border: 2px solid $color-white;
-    border-radius: 0 0 5px 5px;
-    cursor: pointer;
-    // box-shadow: inset -2px -2px 5px #000;
-    text-align: center;
-    font-size: 40px;
-    font-family: sans-serif;
-    font-weight: bold;
-    background: $color-white-rock;
-    user-select: none;
-    transition: 0.1s;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  .key-b {
-    width: 70px;
-    background: $color-jagger;
-    font-size: 30px;
-    color: #fff;
-    height: 60%;
-    margin-left: -23px;
-    margin-right: -26px;
-    z-index: 2;
-  }
-  .key.active {
-    background: #ccc;
-  }
-  .key-b.active {
-    background: #333;
-  }
+  width: 580px;
+  height: 209px;
+  margin: 130px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.key {
+  width: 118px;
+  height: 100%;
+  border: 2px solid $color-white;
+  border-radius: 0 0 5px 5px;
+  cursor: pointer;
+  // box-shadow: inset -2px -2px 5px $color-black;
+  text-align: center;
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  background: $color-white-rock;
+  user-select: none;
+  transition: 0.1s;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.key-b {
+  width: 70px;
+  background: $color-jagger;
+  font-size: 30px;
+  color: $color-white;
+  height: 60%;
+  margin-left: -23px;
+  margin-right: -26px;
+  z-index: 2;
+}
+.key.active {
+  background: $color-hint-of-yellow;
+}
+.key-b.active {
+  background: $color-jagger;
+}

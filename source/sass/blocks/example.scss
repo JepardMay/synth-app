@@ -40,12 +40,8 @@ main {
   }
 }
 
-
-@active: #3498DB;
-@inactive: #000;
-
 .toggle-switch {
-  background: #ccc;
+  background: $color-hint-of-yellow;
   width: 80px;
   height: 30px;
   overflow: hidden;
@@ -53,20 +49,20 @@ main {
   display: inline-block;
   vertical-align: middle;
   margin: 0 10px;
-  
+
   &:after {
     content: " ";
     display: block;
     width: 40px;
     height: 30px;
-    background-color: @active;
-    border: 3px solid #fff;
+    background-color: $color-summer-sky;
+    border: 3px solid $color-white;
     border-top: 0;
     border-bottom: 0;
     margin-left: -3px;
     transition: all 0.1s ease-in-out;
   }
-  
+
   .active & {
     &:after {
       margin-left: 40px;
@@ -80,16 +76,15 @@ main {
 }
 
 .toggle-label-off {
-  color: #3498DB;
+  color: $color-summer-sky;
 }
 
 .active {
-  
   .toggle-label-off {
-    color: #000;
+    color: $color-black;
   }
 
   .toggle-label-on {
-    color: #3498DB;
+    color: $color-summer-sky;
   }
 }
