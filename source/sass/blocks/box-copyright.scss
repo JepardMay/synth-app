@@ -1,0 +1,28 @@
+.box-copyright {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box-copyright__copy {
+  margin: 0;
+  margin-right: 20px;
+  font-size: 16px;
+  line-height: 44px;
+
+  @include mobile {
+    margin: 0;
+  }
+}
+
+.box-copyright__link {
+  border-bottom: 1px solid
+    $color-transparent;
+
+  @media (hover: hover),
+    screen and (min-width: 0\0) {
+    &:hover,
+    &:focus {
+      border-color: inherit;
+    }
+  }
+}

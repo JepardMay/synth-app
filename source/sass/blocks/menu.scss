@@ -1,28 +1,27 @@
-/* скрываем чекбокс */
-#menu__toggle {
-  opacity: 0;
-}
-/* стилизуем кнопку */
 .menu__btn {
-  display: flex; /* используем flex для центрирования содержимого */
-  align-items: center; /* центрируем содержимое кнопки */
-  position: fixed;
-  top: 32px;
-  left: 41px;
-  width: 35px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: $color-transparent;
+  border: none;
+  box-shadow: none;
   cursor: pointer;
-  z-index: 15;
 }
-/* добавляем "гамбургер" */
+
 .menu__btn > span,
 .menu__btn > span::before,
 .menu__btn > span::after {
   display: block;
   position: absolute;
+  left: 0;
   width: 100%;
   height: 4px;
   background-color: $color-jagger;
-  transition: $default-transition;
+  transition: transform $default-transition,
+    top $default-transition;
 }
 
 .menu__btn > span::before {
@@ -34,58 +33,103 @@
   content: "";
   top: 8px;
 }
-/* контейнер меню */
+
 .menu__box {
   display: block;
   position: fixed;
   visibility: hidden;
   top: 0;
+  z-index: 10;
   left: -100%;
-  width: 300px;
+  width: 500px;
   height: 100%;
   margin: 0;
   padding: 80px 0;
   list-style: none;
   text-align: center;
   background-color: $color-hint-of-yellow;
-  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
-  z-index: 9;
-  transition: $default-transition;
-}
-/* элементы меню */
-.menu__item {
-  display: flex;
-  padding: 15px 0 15px 51px;
-  color: $color-black;
-  font-size: 20px;
-  font-weight: 300;
-  text-decoration: none;
-  transition: $default-transition;
-  &:hover {
-    background-color: $color-item-hover;
+  transition: left $default-transition;
+
+  @include laptop {
+    width: 400px;
+  }
+
+  @include tablet {
+    width: 300px;
+  }
+
+  @include mobile {
+    width: 100%;
   }
 }
 
-#menu__toggle:checked ~ .menu__btn > span {
-  transform: rotate(45deg);
-  left: 191px;
+.menu__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: $color-black;
+  font-size: 20px;
+  line-height: 35px;
+  font-weight: 300;
+  transition: background-color
+    $default-transition;
+
+  a {
+    width: 100%;
+    height: 100%;
+    padding: 15px 16px;
+    padding-right: 98px;
+    color: inherit;
+  }
+
+  @media (hover: hover),
+    screen and (min-width: 0\0) {
+    a:hover,
+    a:focus {
+      background-color: $color-white;
+    }
+  }
 }
 
-#menu__toggle:checked
-  ~ .menu__btn
-  > span::before {
-  top: 0;
-  transform: rotate(0);
-}
+.menu--open {
+  width: 40px;
 
-#menu__toggle:checked
-  ~ .menu__btn
-  > span::after {
-  top: 0;
-  transform: rotate(90deg);
-}
+  .menu__btn {
+    position: fixed;
+    top: 20px;
+    left: 72px;
+    z-index: 20;
 
-#menu__toggle:checked ~ .menu__box {
-  visibility: visible;
-  left: 0;
+    & > span {
+      transform: rotate(45deg);
+    }
+
+    & > span::before {
+      top: 0;
+      transform: rotate(0);
+    }
+
+    & > span::after {
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+
+  .menu__box {
+    visibility: visible;
+    left: 0;
+    overflow-y: auto;
+  }
+
+  @include laptop {
+    .menu__btn {
+      left: 35px;
+    }
+  }
+
+  @include tablet {
+    .menu__btn {
+      left: 16px;
+    }
+  }
 }

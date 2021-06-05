@@ -1,17 +1,30 @@
 @mixin laptop {
-  @media (max-width: $desktop-min-width - 1) {
+  @media (max-width: $desktop-width - 1) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media (max-width: $laptop-min-width - 1) {
+  @media (max-width: $laptop-width - 1) {
     @content;
   }
 }
 
 @mixin mobile {
-  @media (max-width: $tablet-min-width - 1) {
+  @media (max-width: $tablet-width - 1) {
     @content;
+  }
+}
+
+@mixin note-size(
+  $note-width,
+  $note-margin: false
+) {
+  width: $note-width;
+  height: calc(#{$note-width} * 2.5);
+
+  @if $note-margin {
+    margin-right: calc(#{$note-width} / -2);
+    margin-left: calc(#{$note-width} / -2);
   }
 }

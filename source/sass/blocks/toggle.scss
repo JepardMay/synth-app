@@ -1,0 +1,57 @@
+.toggle {
+  position: absolute;
+  top: calc(50% - 14px);
+  right: 18px;
+  z-index: 1;
+  padding: 0;
+  background-color: $color-transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.toggle__switch {
+  display: inline-block;
+  width: 80px;
+  height: 25px;
+  vertical-align: middle;
+  background-color: $color-gray;
+  border-radius: 3px;
+  overflow: hidden;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 40px;
+    height: 30px;
+    margin-left: -3px;
+    background-color: $color-tuscany;
+    border: 3px solid $color-white;
+    border-top: 0;
+    border-bottom: 0;
+    transition: all $default-transition;
+  }
+}
+
+.toggle__label {
+  display: inline-block;
+  line-height: 30px;
+}
+
+.toggle__label-off {
+  color: $color-tuscany;
+}
+
+.toggle--active {
+  .toggle__switch {
+    &:after {
+      margin-left: 40px;
+    }
+  }
+
+  .toggle__label-off {
+    color: $color-black;
+  }
+  .toggle__label-on {
+    color: $color-tuscany;
+  }
+}

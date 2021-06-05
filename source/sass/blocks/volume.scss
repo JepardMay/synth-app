@@ -1,0 +1,33 @@
+.volume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: $color-transparent;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  cursor: pointer;
+
+  .volume__icon--off {
+    display: none;
+  }
+}
+
+.volume__icon {
+  svg {
+    fill: $color-tuscany;
+  }
+}
+
+.volume--off {
+  .volume__icon--off {
+    display: initial;
+  }
+
+  .volume__icon--on {
+    display: none;
+  }
+}
