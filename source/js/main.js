@@ -1,5 +1,7 @@
-import { showConsoleLog } from './modules/example';
+import { initPiano } from './modules/piano';
+import { initVolume } from './modules/volume';
 import { screenRotateAlert } from './modules/screen-rotate-alert';
 
-showConsoleLog();
+initPiano();
+initVolume();
 screenRotateAlert();
