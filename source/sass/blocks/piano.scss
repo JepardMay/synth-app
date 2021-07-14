@@ -6,6 +6,12 @@
   width: 100%;
   height: 100%;
   margin: -20px 0 0;
+
+  &--hints {
+    .hint {
+      display: initial;
+    }
+  }
 }
 
 .octave {
@@ -16,8 +22,11 @@
 }
 
 .key {
+  position: relative;
   flex-shrink: 0;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   padding: 0;
   text-align: center;
   font-size: 40px;
@@ -48,6 +57,11 @@
   background-color: $color-jagger;
   z-index: 2;
 
+  .hint {
+    padding: 8px;
+    font-size: 14px;
+  }
+
   @include mobile {
     @include note-size(32px, true);
   }
@@ -59,4 +73,23 @@
 
 .key-b.active {
   background-color: $color-black;
+}
+
+.hint {
+  display: none;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.name {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 20px;
+  color: $color-tuscany;
+  transform: translateX(-50%);
 }
