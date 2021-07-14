@@ -1,33 +1,98 @@
 import * as Tone from 'tone';
 
+let init = false;
+const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+const notes = document.querySelectorAll('.key');
+const keys = [
+  'Tab',
+  '1',
+  'q',
+  '2',
+  'w',
+  'e',
+  '4',
+  'r',
+  '5',
+  't',
+  '6',
+  'y',
+  'u',
+  '8',
+  'i',
+  '9',
+  'o',
+  'p',
+  '-',
+  '[',
+  '=',
+  ']',
+  'Backspace',
+  '\\'
+];
+
+// Start Tone.js
+async function startPiano() {
+  await Tone.start();
+  init = true;
+}
+
 const initPiano = () => {
-  let init = false;
-  const piano = document.querySelector('.piano');
-  const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-  const keys = document.querySelectorAll('.key');
-  // const now = Tone.now();
-
-  // Start Tone.js
-  async function startPiano(evt) {
-    if (!init) {
-      await Tone.start();
-      init = true;
+  const pressNote = (note, isClicked) => {
+    const playedNote = note.dataset.note;
+    if (isClicked) {
+      synth.triggerAttackRelease(playedNote, '16n');
+      note.classList.add('active');
+      setTimeout(() => {
+        note.classList.remove('active');
+      }, 150);
+    } else {
+      synth.triggerAttack(playedNote, Tone.context.currentTime);
+      note.classList.add('active');
     }
+  };
 
-    // if (evt.key === )
-  }
+  const releaseNote = (note) => {
+    const releasedNote = note.dataset.note;
+    synth.triggerRelease(releasedNote);
+    note.classList.remove('active');
+  };
 
   // Event listeners
-  piano.addEventListener('click', startPiano);
+  document.addEventListener('keydown', (evt) => {
+    if (!init) {
+      startPiano();
+    }
 
-  document.addEventListener('keydown', startPiano);
+    evt.preventDefault();
 
-  keys.forEach((key) => {
-    key.addEventListener('click', () => {
-      const note = key.dataset.note;
-      synth.triggerAttackRelease(note, '16n');
+    keys.forEach((key, i) => {
+      if (evt.key === key) {
+        releaseNote(notes[i]);
+        pressNote(notes[i]);
+      }
+    });
+  });
+
+  document.addEventListener('keyup', (evt) => {
+    keys.forEach((key, i) => {
+      if (evt.key === key) {
+        evt.preventDefault();
+        releaseNote(notes[i]);
+      }
+    });
+  });
+
+  document.addEventListener('click', () => {
+    if (!init) {
+      startPiano();
+    }
+  });
+
+  notes.forEach((note) => {
+    note.addEventListener('click', () => {
+      pressNote(note, true);
     });
   });
 };
 
-export { initPiano };
+export { initPiano, startPiano };
