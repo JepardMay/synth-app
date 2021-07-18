@@ -6,3 +6,4 @@ import { openMenu } from './modules/menu';
 initPiano();
 initVolume();
 screenRotateAlert();
+openMenu();
