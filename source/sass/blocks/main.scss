@@ -54,10 +54,13 @@
   height: 100%;
   background-color: $color-shadow;
   opacity: 0;
+  transition: opacity $default-transition;
   pointer-events: none;
+  cursor: pointer;
 }
 
 .overlay--show {
+  z-index: 50;
   opacity: 1;
   pointer-events: initial;
 }
