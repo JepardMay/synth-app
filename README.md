@@ -2,7 +2,7 @@
 
 Synth application with Tone.js
 
-- Live Site URL: [Netlify](https://app.netlify.com/sites/reverent-shockley-3650a2/overview)
+- Live Site URL: [Netlify](https://reverent-shockley-3650a2.netlify.app/)
 
 ## Built with
 
